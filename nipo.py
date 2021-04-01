@@ -16,10 +16,9 @@ class NipoSocket:
         response = self.sock.recv(1024)
         if response != None :
             print (repr(response))
+            
     def close(self):
         self.sock.close()
-
-
 
 class Config():
     def __init__(self, token, server, port):
