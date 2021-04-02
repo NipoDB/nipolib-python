@@ -12,14 +12,14 @@ class NipoSocket:
         self.sock.connect((host, port))
 
     def send(self, msg):
-        self.sock.send(msg.encode())
+        msg = msg+"\n"
+        self.sock.sendall(msg.encode())
         response = self.sock.recv(1024)
         if response != None :
             print (repr(response))
+            
     def close(self):
         self.sock.close()
-
-
 
 class Config():
     def __init__(self, token, server, port):
@@ -59,7 +59,7 @@ def Set(key, value):
 
 def Get(key):
     OpenConnection()
-    string = conf.token+" Get "+key
+    string = conf.token+" get "+key
     sock.send(string)
     sock.close()
 
@@ -86,5 +86,4 @@ def Count(key):
     string = conf.token+" count "+key
     sock.send(string)
     sock.close()
-
 
