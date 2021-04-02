@@ -65,7 +65,7 @@ def Get(key):
 
 def Select(key):
     OpenConnection()
-    string = conf.token+" Select "+key
+    string = conf.token+" select "+key
     sock.send(string)
     sock.close()
 
