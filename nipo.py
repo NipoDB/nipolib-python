@@ -42,13 +42,13 @@ def OpenConnection( ):
 
 def Ping():  
     OpenConnection()
-    string = conf.token+" "+"ping"
+    string = conf.token+" "+"ing"
     connection = sock.send(string)
     ok = False
     if connection:
         ok = True
     sock.close()
-    return(str(connection) , ok)
+    return(connection.decode() , ok)
 
 def Status():
     OpenConnection()
@@ -58,7 +58,7 @@ def Status():
     if connection:
         ok = True
     sock.close()
-    return(connection , ok)
+    return(connection.decode(), ok)
 
 def Set(key, value):
     OpenConnection()
@@ -68,7 +68,7 @@ def Set(key, value):
     if connection:
         ok = True
     sock.close()
-    return(connection , ok)
+    return(connection.decode() , ok)
 
 def Get(key):
     OpenConnection()
@@ -78,7 +78,7 @@ def Get(key):
     if connection:
         ok = True
     sock.close()
-    return(connection , ok)
+    return(connection.decode() , ok)
 
 def Select(key):
     OpenConnection()
@@ -88,7 +88,7 @@ def Select(key):
     if connection:
         ok = True
     sock.close()
-    return(connection , ok)
+    return(connection.decode() , ok)
 
 def Avg(key):
     OpenConnection()
@@ -98,7 +98,7 @@ def Avg(key):
     if connection:
         ok = True
     sock.close()
-    return(connection , ok)
+    return(connection.decode() , ok)
 
 def Sum(key):
     OpenConnection()
@@ -108,7 +108,7 @@ def Sum(key):
     if connection:
         ok = True
     sock.close()
-    return(connection , ok)
+    return(connection.decode() , ok)
 
 def Count(key):
     OpenConnection()
@@ -118,5 +118,5 @@ def Count(key):
     if connection:
         ok = True
     sock.close()
-    return(connection , ok)
+    return(connection.decode() , ok)
 
