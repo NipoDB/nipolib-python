@@ -4,7 +4,7 @@ Nipo library for python
 
 ## sample
 
-```console
+```python
 import nipo 
 
 #Create initial config 
