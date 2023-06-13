@@ -6,21 +6,21 @@ class Config():
         self.server = server
         self.port = port
 
-def CreateConfig(token, server, port):
+def create_config(token, server, port):
     global conf
     conf = Config(token, server, port )
     
 
-def CreateConnection() :
+def create_connection() :
     global sock
     sock = conn.NipoSocket()
 
-def OpenConnection( ): 
-    CreateConnection()
+def open_connection( ): 
+    create_config()
     sock.connect(conf.server, conf.port)
 
-def Ping():  
-    OpenConnection()
+def ping():  
+    open_connection()
     string = conf.token+" "+"ping"
     connection = sock.send(string)
     ok = False
@@ -29,8 +29,8 @@ def Ping():
     sock.close()
     return(connection.decode() , ok)
 
-def Status():
-    OpenConnection()
+def status():
+    open_connection()
     string = conf.token+" "+"status"
     connection = sock.send(string)
     ok = False
@@ -39,8 +39,8 @@ def Status():
     sock.close()
     return(connection.decode(), ok)
 
-def Set(key, value):
-    OpenConnection()
+def set(key, value):
+    open_connection()
     string = conf.token+" set "+key+" "+value
     connection = sock.send(string)
     ok = False
@@ -49,8 +49,8 @@ def Set(key, value):
     sock.close()
     return(connection.decode() , ok)
 
-def Get(key):
-    OpenConnection()
+def get(key):
+    open_connection()
     string = conf.token+" get "+key
     connection = sock.send(string)
     ok = False
@@ -59,8 +59,8 @@ def Get(key):
     sock.close()
     return(connection.decode() , ok)
 
-def Select(key):
-    OpenConnection()
+def select(key):
+    open_connection()
     string = conf.token+" select "+key
     connection = sock.send(string)
     ok = False
@@ -69,8 +69,8 @@ def Select(key):
     sock.close()
     return(connection.decode() , ok)
 
-def Avg(key):
-    OpenConnection()
+def avg(key):
+    open_connection()
     string = conf.token+" avg "+key
     connection = sock.send(string)
     ok = False
@@ -79,8 +79,8 @@ def Avg(key):
     sock.close()
     return(connection.decode() , ok)
 
-def Sum(key):
-    OpenConnection()
+def sum(key):
+    open_connection()
     string = conf.token+" sum "+key
     connection = sock.send(string)
     ok = False
@@ -89,8 +89,8 @@ def Sum(key):
     sock.close()
     return(connection.decode() , ok)
 
-def Count(key):
-    OpenConnection()
+def count(key):
+    open_connection()
     string = conf.token+" count "+key
     connection = sock.send(string)
     ok = False
@@ -98,4 +98,3 @@ def Count(key):
         ok = True
     sock.close()
     return(connection.decode() , ok)
-
