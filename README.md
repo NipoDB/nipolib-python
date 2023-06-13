@@ -4,20 +4,20 @@ Nipo library for python
 
 ## sample
 
-```console
+```python
 import nipo 
 
 #Create initial config 
-nipo.CreateConfig("TOKEN", "IP", PORT)
+nipo.create_config("TOKEN", "IP", PORT)
 
 #call ping function 
 #result must be Pong 
-nipo.Ping()
+nipo.ping()
 
 #set key and value in database 
-nipo.Set("KEY" , "VALUE")
+nipo.set("KEY" , "VALUE")
 
 #get value of specefic key 
-nipo.Get("KEY")
+nipo.get("KEY")
 
 ```
